@@ -1,5 +1,5 @@
 # De donde viene mi proyecto
-FROM node:20
+FROM node:16
 # Creamos el directorio de trabajo
 WORKDIR /app
 # Pasamos los archivos al directorio de trabajo => para que que copie todos los archivos que empiecen con package los copias, para eso se usa *
@@ -10,4 +10,10 @@ RUN npm install
 COPY . . 
 # Para arrancar el sistema, le pasamos el script creado para arrancar nuestro proyecto
 CMD ["npm", "start"]
+
+# Ya podemos generar la imagen de nuestro contenedor
+    # Para nombrar y crear el proyecto NOta: añadimos un . para decir que todo lo que esté
+        # docker build -t <nombre del proyecto> .
+    # Para arrancar el contenedor en local 
+        # docker run -it -p 4000:3000 <nombre del proyecto>
 
